@@ -1,0 +1,560 @@
+.wpformbuilder-admin-tab-panel {
+    width: 19%;
+    border-left: 1px solid #dedede;
+    padding-left: 15px;
+}
+
+.wpformbuilder-admin-tab-panel p.submit {
+    text-align: center;
+}
+
+.wpformbuilder-admin-tab-panel ul li {
+    padding: 2px 0px;
+}
+
+.wpformbuilder-admin-tab-panel ul li label {
+    vertical-align: unset;
+}
+
+.wpformbuilder-admin-tab-panel ul li input {
+    border-radius: 0px;
+}
+
+.wpformbuilder-admin-tab-content_item.active {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.wpformbuilder-admin-tab-content_item.tab-widgets {
+    padding: 30px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.wpformbuilder-admin-tab-content {
+    border: 1px solid #dedede;
+    border-top: none;
+}
+
+.wpformbuilder-admin-tab-heading li {
+    padding: 15px 20px;
+    cursor: pointer;
+    background-color: #f8fafb;
+    margin-right: 10px;
+    margin-bottom: 0px;
+    border-radius: 4px 4px 0 0;
+    font-weight: 600;
+    margin-bottom: -1px;
+    border: 1px solid #dedede;
+    transition: all .3s;
+}
+
+.wpformbuilder-admin-tab-heading li.active {
+    background-color: #ffffff;
+    border-bottom: 1px solid #ffffff;
+
+    a {
+        color: #000;
+    }
+}
+
+.wpformbuilder-admin-tab-heading li:last-child {
+    margin-right: 0px;
+}
+
+.wpformbuilder-admin-tab-content_item {
+    display: none;
+    background-color: #ffffff;
+}
+
+.wpformbuilder-admin-tab-heading {
+    display: flex;
+    margin-bottom: 0px;
+    border-bottom: 1px solid #dedede;
+}
+
+.wpformbuilder-admin-tab-content_item.api-settings,
+.wpformbuilder-admin-tab-content_item.payment-settings {
+    justify-content: space-between;
+    padding: 20px;
+}
+.wpformbuilder-admin-tab-content_item.license-settings {
+    justify-content: center;
+    padding: 28px 20px 36px;
+}
+.license-settings .wpformbuilder-admin-tab-wrap{
+    width: 100%;
+    max-width: 480px;
+}
+.wpformbuilder-tab-license-content{
+    margin: 0 auto;
+    width: 100%;
+    max-width: 480px;
+}
+
+.wpformbuilder-admin-tab-api__inner {
+    width: 80%;
+    margin: 0 auto;
+    border: 1px solid #dedede;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    box-shadow: 0 2px 6px rgb(0 0 0 / 10%);
+    border-radius: 4px;
+}
+
+.wpformbuilder-admin-api-tab {
+    padding: 15px;
+    border-bottom: 1px solid #ccc;
+}
+
+.wpformbuilder-loading-icon-save-options {
+    display: none;
+    width: 11px;
+    margin-right: 5px;
+}
+
+.wpformbuilder-loading-icon-save-options.loading {
+    display: inline;
+}
+
+.wpformbuilder-notification-save-settings {
+    padding: 4px 10px;
+    border: 1px solid #e3e3e5;
+    border-left: 4px solid #00a32a;
+    display: none;
+    transition: all .3s;
+    font-weight: 500;
+}
+
+.wpformbuilder-api-save,
+.wpformbuilder-api-change {
+    margin: 0px 10px;
+}
+
+.wpformbuilder-api-save,
+.wpformbuilder-api-change {
+    background-color: #1d6eb1;
+    border: none;
+    color: #fff;
+    padding: 5px 15px;
+    border-radius: 3px;
+    transition: all .3s;
+    cursor: pointer;
+}
+
+.wpformbuilder-admin-tab-api-content {
+    width: 80%;
+}
+
+h4.payment-title {
+    font-size: 18px;
+    font-weight: 700;
+    margin: 0;
+}
+
+.wpformbuilder-get-version-pro {
+    text-decoration: none;
+    font-style: italic;
+}
+
+.wpformbuilder-get-version-pro:hover {
+    text-decoration: underline;
+}
+
+.wpformbuilder-get-version-pro:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.wpformbuilder-submition-details-body {
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-shadow: 0 9px 33px 0 rgb(2 8 53 / 15%);
+    display: flex;
+    justify-content: space-between;
+}
+
+.wpformbuilder-submition-details {
+    background-color: #fff;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 3px;
+    min-height: 700px;
+}
+
+h2.wpformbuilder-submition-title {
+    font-size: 23px;
+    font-weight: 400;
+    margin: 0;
+    padding: 9px 0 4px;
+    line-height: 1.3
+}
+
+.wpformbuilder-submition-details-post {
+    width: 70%;
+    border-radius: 3px;
+}
+
+.wpformbuilder-submition-details-metadata__items {
+    display: flex;
+    flex-direction: column;
+    width: 28%;
+    border-radius: 3px;
+}
+
+.wpformbuilder-submition-details-metadata .wpformbuilder-submition-metadata-box {
+    border-bottom: 1px solid #ccc;
+    background-color: #2271b1;
+    color: #fff;
+    cursor: auto !important;
+    font-size: 14px;
+    padding: 8px 12px;
+    margin: 0;
+}
+
+.wpformbuilder-metadata-title {
+    font-weight: 600;
+}
+
+label.wpformbuilder-editor-checkbox {
+    margin-right: 5px;
+}
+
+label.wpformbuilder-editor-checkbox:last-child {
+    margin-right: 0px;
+}
+
+.wpformbuilder-cancel-database {
+    display: none !important;
+}
+
+.wpformbuilder-cancel-database.wpformbuilder-visible {
+    display: inline-block !important;
+}
+
+.wpformbuilder-unread {
+    font-weight: 600;
+}
+
+#wpformbuilder-authenticate-zoho-crm.wpformbuilder-disabled {
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+#wpformbuilder-authenticate-zoho-crm.wpformbuilder-hidden {
+    display: none;
+}
+
+.wpformbuilder-zoho-helper {
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    text-decoration: none;
+    transition: all .3s;
+}
+.wpformbuilder-zoho-helper:hover {
+    text-decoration: underline;
+}
+.wpformbuilder-zoho-helper:focus {
+    outline: none;
+    box-shadow: none;
+}
+.wpformbuilder-image-upload-box, .wpformbuilder-document-box{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.wpformbuilder-image-upload-submissions{
+    text-align: center;
+    width: 150px;
+    height: 150px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+a.wpformbuilder-dowload-document:focus{
+    outline: none;
+    box-shadow: none;
+}
+a.wpformbuilder-dowload-document{
+    text-decoration: none;
+    margin-top: 5px;
+    transition: all .3s;
+}
+a.wpformbuilder-dowload-document:hover{
+    text-decoration: underline;
+}
+.wpformbuilder-document-item{
+    text-align: center;
+}
+.wpformbuilder-document-name__text{
+    display: inline-block;
+    max-width: 150px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    text-align: center;
+}
+.wpformbuilder-dowload-document-download{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
+.wpformbuilder-dowload-document-download:hover{
+    text-decoration: underline;
+}
+.wpformbuilder-form-submit .wpformbuilder-unread{
+    font-weight: 700;
+}
+.wpformbuilder-license-card{
+    background: #fff;
+    border: 1px solid #dcdcde;
+    border-radius: 8px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04), 0 8px 24px rgba(0, 0, 0, 0.04);
+    overflow: hidden;
+}
+.wpformbuilder-license-card__header{
+    padding: 22px 24px 18px;
+    border-bottom: 1px solid #f0f0f1;
+    background: linear-gradient(180deg, #f8f9fa 0%, #fff 100%);
+}
+.wpformbuilder-license-card__header h3{
+    margin: 0 0 6px;
+    font-size: 18px;
+    line-height: 1.3;
+    font-weight: 600;
+    color: #1d2327;
+}
+.wpformbuilder-license-card__header p{
+    margin: 0;
+    color: #646970;
+    font-size: 13px;
+    line-height: 1.5;
+}
+.wpformbuilder-license-form{
+    padding: 20px 24px 24px;
+}
+.wpformbuilder-license-group{
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 6px;
+    margin-bottom: 14px;
+}
+.wpformbuilder-license-label{
+    margin: 0;
+    font-size: 13px;
+    font-weight: 600;
+    color: #1d2327;
+    text-align: left;
+}
+.wpformbuilder-license-control,
+.wpformbuilder-license-group .sun-license-email,
+.wpformbuilder-license-group .sun-license-password{
+    width: 100%;
+}
+.sun-license-password{
+    position: relative;
+}
+.sun-license-password input[type="password"],
+.sun-license-password input[type="text"]{
+    padding-right: 42px;
+}
+.wpformbuilder-license-password-toggle{
+    position: absolute;
+    top: 1px;
+    right: 1px;
+    bottom: 1px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    border-radius: 0 3px 3px 0;
+    background: transparent;
+    color: #646970;
+    cursor: pointer;
+}
+.wpformbuilder-license-password-toggle:hover,
+.wpformbuilder-license-password-toggle:focus,
+.wpformbuilder-license-password-toggle[aria-pressed="true"]{
+    color: #2271b1;
+    outline: none;
+    box-shadow: none;
+}
+.wpformbuilder-license-password-toggle .dashicons{
+    width: 20px;
+    height: 20px;
+    font-size: 20px;
+    line-height: 20px;
+}
+#license-show-password{
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+.wpformbuilder-license-group input[type="email"],
+.wpformbuilder-license-group input[type="password"],
+.wpformbuilder-license-group input[type="text"]{
+    width: 100%;
+    max-width: none;
+    min-height: 40px;
+    margin: 0;
+    padding: 0 12px;
+    border: 1px solid #c3c4c7;
+    border-radius: 4px;
+    box-shadow: none;
+    font-size: 14px;
+}
+.wpformbuilder-license-group input[type="email"]:focus,
+.wpformbuilder-license-group input[type="password"]:focus,
+.wpformbuilder-license-group input[type="text"]:focus{
+    border-color: #2271b1;
+    box-shadow: 0 0 0 1px #2271b1;
+    outline: none;
+}
+.wpformbuilder-license-options{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 20px;
+    margin: 2px 0 16px;
+}
+.wpformbuilder-license-toggle{
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0;
+    color: #50575e;
+    font-size: 13px;
+    cursor: pointer;
+}
+.wpformbuilder-license-toggle input[type="checkbox"]{
+    margin: 0;
+    flex: 0 0 auto;
+}
+.sun-license-eror-msg:empty{
+    display: none;
+}
+.sun-license-eror-msg:not(:empty){
+    margin-bottom: 14px;
+    padding: 10px 12px;
+    border-radius: 4px;
+    background: #fcf0f1;
+    border: 1px solid #f0c4c4;
+    color: #8a2424;
+    font-size: 13px;
+    line-height: 1.45;
+}
+.sun-license-eror-msg.is-success:not(:empty){
+    background: #edfaef;
+    border-color: #b8e6bf;
+    color: #1e6b32;
+}
+.sun-license-active-buttons{
+    display: block;
+    margin: 0;
+}
+.button-license-activate{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    min-height: 40px;
+    font-size: 14px;
+}
+.button-license-activate .fa{
+    display: none;
+}
+.button-license-activate:disabled .fa{
+    display: inline-block;
+}
+.wpformbuilder-admin-tab-api__license{
+    width: 100%;
+    max-width: 480px;
+    margin: 8px auto 0;
+    padding: 0;
+    display: block;
+}
+
+.wpformbuilder-shortcode-wrap {
+    position: relative;
+    display: inline-block;
+    max-width: 100%;
+}
+
+.wpformbuilder-shortcode-wrap .wpformbuilder-widget-shortcode-input {
+    width: 200px;
+    max-width: 100%;
+    margin: 0;
+    padding-right: 34px;
+}
+
+.wpformbuilder-shortcode-copy {
+    position: absolute;
+    top: 1px;
+    right: 1px;
+    bottom: 1px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    padding: 0;
+    border: 0;
+    border-radius: 0 3px 3px 0;
+    background: transparent;
+    color: #50575e;
+    cursor: pointer;
+    outline: none;
+    box-shadow: none;
+}
+
+.wpformbuilder-shortcode-copy.button-link:hover,
+.wpformbuilder-shortcode-copy.button-link:focus,
+.wpformbuilder-shortcode-copy.button-link:focus-visible,
+.wpformbuilder-shortcode-copy.button-link:active {
+    color: #2271b1;
+    background: #f6f7f7;
+    outline: none;
+    box-shadow: none;
+}
+
+.wpformbuilder-shortcode-copy .dashicons {
+    width: 18px;
+    height: 18px;
+    font-size: 18px;
+}
+
+.wpformbuilder-shortcode-copy-tooltip {
+    position: absolute;
+    left: 50%;
+    bottom: calc(100% + 6px);
+    transform: translateX(-50%) translateY(4px);
+    padding: 4px 8px;
+    border-radius: 4px;
+    background: #1d2327;
+    color: #fff;
+    font-size: 11px;
+    line-height: 1.4;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.15s ease, transform 0.15s ease, visibility 0.15s ease;
+    z-index: 20;
+}
+
+.wpformbuilder-shortcode-copy.is-copied .wpformbuilder-shortcode-copy-tooltip {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+}

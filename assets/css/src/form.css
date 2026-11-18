@@ -1,0 +1,379 @@
+@import '../../../assets//js/src/includes/controls/forms/file-upload/file-upload.css';
+@import '../../../assets//js/src/includes/controls/forms//step/step.css';
+@import '../../../assets//js/src/includes/controls/forms/radio/radio.css';
+@import '../../../assets//js/src/includes/controls/forms/checkbox/checkbox.css';
+.wpformbuilder-form-group .wpformbuilder-form-control__field:not([type="checkbox"]):not([type="radio"]) {
+    width: 100%;
+    border-radius: 0;
+}
+
+.wpformbuilder-form__inner {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.wpformbuilder-form-control__field:focus {
+    outline: none;
+}
+
+.wpformbuilder-form-control__field {
+    box-sizing: border-box;
+    padding: 0px 8px;
+    border-width: 1px;
+}
+
+.wpformbuilder-form-control.stripe {
+    box-sizing: border-box;
+    padding: 0px 8px;
+    border: 1px solid #ccc;
+    min-height: 40px;
+    display: flex;
+    align-items: center;
+    background: #fff;
+}
+
+.wpformbuilder-form-control.stripe .StripeElement {
+    width: 100%;
+}
+
+.wpformbuilder-stripe-wrapper{
+    min-height: 40px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+}
+
+.wpformbuilder-form-control__field.extra-small:not([type="checkbox"]):not([type="radio"]) {
+    min-height: 33px;
+}
+
+.wpformbuilder-form-control__field.small:not([type="checkbox"]):not([type="radio"]) {
+    min-height: 40px;
+}
+
+.wpformbuilder-form-control__field.medium:not([type="checkbox"]):not([type="radio"]) {
+    min-height: 47px;
+}
+
+.wpformbuilder-form-control__field.large:not([type="checkbox"]):not([type="radio"]) {
+    min-height: 59px;
+}
+
+.wpformbuilder-form__inner .wpformbuilder-form-group label {
+    display: block;
+}
+
+.wpformbuilder-form__button {
+    display: flex;
+    margin-top: 15px;
+}
+
+.wpformbuilder-form__button .wpformbuilder-form__button--submit {
+    transition: all .3s;
+    cursor: pointer;
+}
+
+.wpformbuilder-button-submit-sm {
+    min-height: 40px;
+}
+
+.wpformbuilder-button-submit-md {
+    min-height: 47px;
+}
+
+.wpformbuilder-button-submit-lg {
+    min-height: 59px;
+}
+
+.wpformbuilder-button-submit-xl {
+    min-height: 72px;
+}
+
+.wpformbuilder-form__button--submit {
+    background-color: #04AA6D;
+    outline: none;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    font-size: 16px;
+    padding: 10px 20px;
+}
+
+.wpformbuilder-message__submit, .wpformbuilder-message__stripe {
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+.wpformbuilder-message__submit.error, .wpformbuilder-message__stripe.error {
+    color: #f51919;
+}
+
+.wpformbuilder-message__submit.success, .wpformbuilder-message__stripe.success {
+    color: #000000;
+}
+
+fieldset.wpformbuilder-form-group {
+    display: block;
+    min-inline-size: min-content;
+    margin-inline: 2px;
+    border-width: 2px;
+    border-style: groove;
+    border-image: initial;
+    padding-block: 0.35em 0.625em;
+    padding-inline: 0.75em;
+}
+
+.wpformbuilder-form-validate-inline .wpformbuilder-form-group .wpformbuilder-form-control{
+    margin-bottom: 5px;
+}
+
+.wpformbuilder-form-group__required {
+    color: red;
+    font-size: 13px;
+}
+
+.wpformbuilder-repeater-map-field-panel button.components-button.components-panel__body-toggle {
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Overlay Form */
+.wpformbuilder-form {
+    position: relative;
+}
+
+.wpformbuilder-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.6);
+    /* độ mờ */
+    z-index: 999;
+    pointer-events: all;
+    /* chặn click */
+}
+
+.wpformbuilder-file-upload-preview.list .wpformbuilder-file-upload-item:not(:last-child) {
+    margin-bottom: 10px;
+}
+
+.wpformbuilder-file-upload-preview.list .wpformbuilder-file-upload-item:nth-child(1) {
+    margin-top: 10px;
+}
+
+.wpformbuilder-file-upload-item-remove {
+    cursor: pointer;
+}
+
+.wpformbuilder-formtokenfield-attachment-upload span.components-form-token-field__token-text {
+    width: auto;
+    overflow: visible;
+}
+
+.wpformbuilder-formtokenfield-attachment-upload {
+    margin-bottom: 10px;
+}
+
+.wpformbuilder-button-layout-options {
+    border: 1px solid #ccc !important;
+}
+
+.wpformbuilder-button-layout-options button.components-toggle-group-control-option-base {
+    width: 100%;
+    border: none !important;
+    box-shadow: none !important;
+    outline: none !important;
+    color: #000;
+    display: flex;
+    align-items: center;
+}
+
+.wpformbuilder-button-layout-options button.components-toggle-group-control-option-base[aria-checked="true"] {
+    color: #fff !important;
+}
+
+/* For Icon Upload Layout */
+.wpformbuilder-file-upload-preview.icon {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 10px;
+}
+
+.wpformbuilder-file-upload-preview.icon .wpformbuilder-name-file-upload {
+    display: inline-block;
+    position: relative;
+}
+
+.wpformbuilder-file-upload-preview.icon .wpformbuilder-file-upload-item {
+    text-align: center;
+}
+
+.wpformbuilder-file-upload-preview.icon .wpformbuilder-file-upload-item-remove {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    background-color: #e10808;
+    color: #fff;
+    transition: all .3s;
+}
+
+.wpformbuilder-file-upload-preview.icon .wpformbuilder-file-upload-item-remove:hover {
+    background-color: #ff0000;
+}
+
+.wpformbuilder-file-upload-preview.icon .wpformbuilder-file-upload-item-remove i {
+    font-size: 16px;
+
+}
+
+.wpformbuilder-file-upload-preview.icon .wpformbuilder-file-upload-name {
+    display: flex;
+    align-items: center;
+    justify-self: center;
+}
+
+.wpformbuilder-file-upload-preview.icon .wpformbuilder-file-upload-name .wpformbuilder-file-upload-name-text {
+    display: block;
+    font-size: 14px;
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 150px;
+}
+
+.wpformbuilder-file-upload-preview.icon .wpformbuilder-file-upload-extension {
+    font-size: 14px;
+}
+
+.wpformbuilder-file-upload-preview.list .wpformbuilder-file-upload-name {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 300px;
+    font-size: 14px;
+}
+
+.wpformbuilder-file-upload-preview.list span.wpformbuilder-file-upload-size {
+    font-size: 14px;
+}
+
+.wpformbuilder-file-upload-preview.list .wpformbuilder-file-upload-item-remove {
+    width: 25px;
+    height: 25px;
+    background: #e10808;
+    display: flex;
+    align-items: center;
+    border-radius: 50%;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.wpformbuilder-file-upload-preview.list .wpformbuilder-file-upload-item-remove:hover {
+    background: #ff0000;
+}
+
+.wpformbuilder-file-upload-preview.list .wpformbuilder-file-upload-item-remove i {
+    font-size: 16px;
+}
+
+.wpformbuilder-file-upload-preview.list .wpformbuilder-file-upload-name .wpformbuilder-file-upload-name-text {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.wpformbuilder-form-notification-upload.error {
+    color: #f51919;
+    font-size: 16px;
+    margin-top: 5px;
+}
+
+/* For Image Upload */
+.wpformbuilder-form__inner .wpformbuilder-form-group label.wpformbuilder-image-upload-label {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1px;
+    border: 2px dashed #ddd;
+    cursor: pointer;
+}
+.wpformbuilder-image-upload-item-content{
+    display: inline-block;
+    border: 2px dashed #ddd;
+    position: relative;
+}
+.wpformbuilder-image-upload-item {
+    position: relative;
+    text-align: center;
+    display: inline-block !important;
+}
+
+.wpformbuilder-image-upload-item-remove {
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: #fff;
+    background-color: #e10808;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all .3s;
+}
+
+.wpformbuilder-image-upload-item-remove:hover {
+    background-color: #ff0000;
+}
+
+.wpformbuilder-image-upload-item-remove i {
+    font-size: 16px;
+}
+span.wpformbuilder-upload-image-name{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+span.wpformbuilder-upload-image-name-text {
+    display: block;
+    font-size: 14px;
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 200px;
+}
+span.wpformbuilder-upload-image-extension{
+    font-size: 14px;
+}
+.wpformbuilder-image-upload-preview {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+.wpformbuilder-multiple-step-form-progress{
+    display: flex;
+    width: 100%;
+    background: red;
+    justify-content: space-between;
+}
+/* For editor style */
+.wpformbuilder-panel-toggle .components-panel__body-title button{
+    font-weight: 500;
+}

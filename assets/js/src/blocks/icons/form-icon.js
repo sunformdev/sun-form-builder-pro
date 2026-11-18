@@ -1,0 +1,13 @@
+const formIcon = (
+	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" role="img" aria-hidden="true">
+		<path
+			fill="currentColor"
+			fillRule="evenodd"
+			d="M5 3.25A1.75 1.75 0 0 0 3.25 5v14A1.75 1.75 0 0 0 5 20.75h14A1.75 1.75 0 0 0 20.75 19V5A1.75 1.75 0 0 0 19 3.25H5Zm0 1.5h14c.69 0 1.25.56 1.25 1.25v12c0 .69-.56 1.25-1.25 1.25H5A1.25 1.25 0 0 1 3.75 18V6c0-.69.56-1.25 1.25-1.25Z"
+		/>
+		<path fill="currentColor" d="M7.25 6.75h9.5v1.75H7.25V6.75Zm0 3.5h9.5v1.75H7.25v-1.75Zm0 3.5h9.5v1.75H7.25v-1.75Z" />
+		<path fill="currentColor" d="M7.25 16.25h9.5v2.75H7.25v-2.75Z" />
+	</svg>
+);
+
+export default formIcon;

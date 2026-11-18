@@ -1,0 +1,248 @@
+.wpformbuilder-multiple-step-form-button {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.wpformbuilder-multiple-step-form-button.flex-one {
+    justify-content: flex-end;
+}
+
+.wpformbuilder-multi-step-form__button--next,
+.wpformbuilder-multi-step-form__button--previous,
+.wpformbuilder-multi-step-form__button--submit {
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: #04AA6D;
+    color: #fff;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+/* Thanh tiến trình nhiều bước (đánh số) */
+.wpformbuilder-multi-step-form__progress {
+    /* Tùy chỉnh: thời lượng / độ trễ hiệu ứng đoạn nối (Next = trái→phải, Previous = phải→trái) */
+    --wpfb-progress-connector-duration: 0.45s;
+    --wpfb-progress-connector-delay: 0s;
+    --wpfb-progress-connector-ease: cubic-bezier(0.4, 0, 0.2, 1);
+    --wpfb-progress-connector-color: #04AA6D;
+    --wpfb-progress-connector-track: #e0e0e0;
+    /* Độ rộng tối đa của thanh; đặt 100% để full ngang khung */
+    /* --wpfb-progress-bar-max-width: 960px; */
+    /* Trong .wpformbuilder-form__inner (flex): một hàng full ngang, nội dung căn giữa bên trong */
+    flex: 0 0 100%;
+    align-self: stretch;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    margin: 0 0 16px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.wpformbuilder-multi-step-form__progress-list {
+    position: relative;
+    list-style: none;
+    margin: 0 auto;
+    padding: 0;
+    /* Không dùng width: 100% — tránh flex item giãn nền hết khiến không còn “khoảng” để căn giữa */
+    flex: 0 1 auto;
+    width: min(100%, var(--wpfb-progress-bar-max-width));
+    max-width: var(--wpfb-progress-bar-max-width);
+    min-width: 0;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    gap: 8px 0;
+    width: 100%;
+}
+
+.wpformbuilder-multi-step-form__progress-item {
+    display: flex;
+    align-items: flex-start;
+    /* flex: 1 1 0; */
+    /* Không đặt max-width — trước đây 120px khiến cả thanh không thể rộng quá (n bước × 120px). */
+}
+
+/* Số + tiêu đề (label field step) xếp cột; đoạn nối căn theo tâm vòng tròn số */
+.wpformbuilder-multi-step-form__progress-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    flex-shrink: 0;
+    min-width: 0;
+    max-width: 100%;
+}
+
+.wpformbuilder-multi-step-form__progress-title {
+    font-size: 12px;
+    line-height: 1.25;
+    color: #555;
+    text-align: center;
+    max-width: 100%;
+    white-space: nowrap;
+}
+
+.wpformbuilder-multi-step-form__progress-item.is-active .wpformbuilder-multi-step-form__progress-title {
+    color: #04AA6D;
+    font-weight: 600;
+    box-shadow: none !important;
+}
+
+.wpformbuilder-multi-step-form__progress-item.is-complete .wpformbuilder-multi-step-form__progress-title {
+    color: #2e7d32;
+}
+
+.wpformbuilder-multi-step-form__progress-item:not(:last-child) {
+    /* min-width: 150px; */
+    flex-wrap: nowrap;
+    width: 100%;
+}
+
+/* Đoạn nối giữa các bước (bước cuối không có thẻ) — margin-top căn với tâm vòng .progress-num (36px) */
+.wpformbuilder-multi-step-form__progress-connector {
+    flex: 1 1 auto;
+    height: 2px;
+    align-self: auto;
+    background-color: var(--wpfb-progress-connector-track);
+    border-radius: 1px;
+    min-width: 8px;
+}
+
+/* Đoạn hoàn thành: lớp màu quét (dùng chung cho trạng thái tĩnh và keyframes) */
+.wpformbuilder-multi-step-form__progress-item.is-complete .wpformbuilder-multi-step-form__progress-connector {
+    background-color: var(--wpfb-progress-connector-track);
+    background-image: linear-gradient(var(--wpfb-progress-connector-color), var(--wpfb-progress-connector-color));
+    background-repeat: no-repeat;
+    background-position: left center;
+    background-size: 100% 100%;
+}
+
+/* Next: quét màu trái → phải */
+.wpformbuilder-multi-step-form__progress-item.wpformbuilder-progress-connector--animate-in .wpformbuilder-multi-step-form__progress-connector {
+    animation: wpfb-progress-connector-sweep-in var(--wpfb-progress-connector-duration) var(--wpfb-progress-connector-ease) var(--wpfb-progress-connector-delay) both;
+}
+
+/* Previous: thu màu từ phải sang trái (neo trái, thu chiều rộng → biên xanh chạy phải → trái) */
+.wpformbuilder-multi-step-form__progress-item.wpformbuilder-progress-connector--animate-out .wpformbuilder-multi-step-form__progress-connector {
+    animation: wpfb-progress-connector-sweep-out var(--wpfb-progress-connector-duration) var(--wpfb-progress-connector-ease) var(--wpfb-progress-connector-delay) both;
+}
+
+@keyframes wpfb-progress-connector-sweep-in {
+    from {
+        background-size: 0% 100%;
+        background-position: left center;
+    }
+
+    to {
+        background-size: 100% 100%;
+        background-position: left center;
+    }
+}
+
+@keyframes wpfb-progress-connector-sweep-out {
+    from {
+        background-color: var(--wpfb-progress-connector-track);
+        background-image: linear-gradient(var(--wpfb-progress-connector-color), var(--wpfb-progress-connector-color));
+        background-repeat: no-repeat;
+        background-position: left center;
+        background-size: 100% 100%;
+    }
+
+    to {
+        background-color: var(--wpfb-progress-connector-track);
+        background-image: linear-gradient(var(--wpfb-progress-connector-color), var(--wpfb-progress-connector-color));
+        background-repeat: no-repeat;
+        background-position: left center;
+        background-size: 0% 100%;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .wpformbuilder-multi-step-form__progress-item.wpformbuilder-progress-connector--animate-in .wpformbuilder-multi-step-form__progress-connector,
+    .wpformbuilder-multi-step-form__progress-item.wpformbuilder-progress-connector--animate-out .wpformbuilder-multi-step-form__progress-connector {
+        animation: none;
+    }
+}
+
+.wpformbuilder-multi-step-form__progress-num {
+    position: relative;
+    z-index: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border: 2px solid #ccc;
+    background: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1;
+    color: #555;
+    box-sizing: border-box;
+    flex-shrink: 0;
+}
+span.wpformbuilder-multi-step-form__progress-num.circle{
+    border-radius: 50%;
+}
+.wpformbuilder-multi-step-form__progress-item.is-complete .wpformbuilder-multi-step-form__progress-num {
+    border-color: #04AA6D;
+    background: #04AA6D;
+    color: #fff;
+}
+
+.wpformbuilder-multi-step-form__progress-item.is-active .wpformbuilder-multi-step-form__progress-num {
+    border-color: #04AA6D;
+    background: #fff;
+    color: #04AA6D;
+    box-shadow: 0 0 0 3px rgba(4, 170, 109, 0.22);
+}
+
+.wpformbuilder-multi-step-form__progress-item.is-active.is-complete .wpformbuilder-multi-step-form__progress-num {
+    background: #fff;
+    color: #04AA6D;
+}
+
+/* Step number and text */
+nav.wpformbuilder-multi-step-form__progress.text .wpformbuilder-multi-step-form__progress-connector{
+    margin: 0px 8px;
+}
+nav.wpformbuilder-multi-step-form__progress.text .wpformbuilder-multi-step-form__progress-item{
+    align-items: center;
+}
+.wpformbuilder-multi-step-form__progress.icon .wpformbuilder-multi-step-form__progress-item, .wpformbuilder-multi-step-form__progress.number .wpformbuilder-multi-step-form__progress-item{
+    align-items: center;
+}
+
+.wpformbuilder-multi-step-form__progress:is(.icon, .number, .number_text, .icon_text) .wpformbuilder-multi-step-form__progress-item .wpformbuilder-multi-step-form__progress-connector{
+    margin: 0px 8px;
+}
+
+.wpformbuilder-multi-step-form__progress:is(.number_text, .icon_text) .wpformbuilder-multi-step-form__progress-title{
+    position: absolute;
+    bottom: -30px;
+}
+.wpformbuilder-multi-step-form__progress:is(.number_text, .icon_text) .wpformbuilder-multi-step-form__progress-item{
+    align-items: center;
+}
+.wpformbuilder-form .wpformbuilder-form__inner .wpformbuilder-multi-step-form__panel .wpformbuilder-multi-step-form__panel-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+}
+
+.wpformbuilder-multi-step-form__panel-fields {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    width: 100%;
+}

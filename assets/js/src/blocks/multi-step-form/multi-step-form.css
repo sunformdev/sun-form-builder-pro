@@ -1,0 +1,51 @@
+.wpformbuilder-sortable-title {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.wpformbuilder-sortable-dots {
+    display: grid;
+    grid-template-columns: repeat(2, 4px);
+    gap: 3px 4px;
+    flex-shrink: 0;
+}
+
+.wpformbuilder-sortable-dots span {
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: #8c8f94;
+}
+
+.wpformbuilder-sortable-icon-group {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.wpformbuilder-sortable-placeholder {
+    min-height: 48px;
+    margin-bottom: 12px;
+    border: 1px dashed #8c8f94;
+    border-radius: 4px;
+    background: rgba(0, 0, 0, 0.04);
+}
+
+.wpformbuilder-sortable-fields .components-panel__body-toggle {
+    cursor: grab;
+}
+
+.wpformbuilder-sortable-fields .components-panel__body-toggle:active {
+    cursor: grabbing;
+}
+.wpformbuilder-custom-attribute-panel.step h2 button:first-child{
+  color: red;
+}
+.wpformbuilder-tab-panel-button-style .wpformbuilder-tab-step{
+    font-weight: 400;
+}
+.wpformbuilder-tab-button-hover.wpformbuilder-tab-step.active{
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+}

@@ -1,0 +1,18 @@
+.wpformbuilder-button-file-upload {
+    border: 1px solid #ccc;
+    padding: 5px 10px;
+    border-radius: 3px;
+    margin-bottom: 5px;
+    cursor: pointer;
+    display: inline-block !important;
+}
+.wpformbuilder-file-upload-preview.list .wpformbuilder-file-upload-item{
+    display: flex !important;
+    align-items: center;
+    justify-content: space-between;
+}
+.wpformbuilder-name-file-upload{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
