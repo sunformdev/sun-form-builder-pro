@@ -29,35 +29,6 @@ jQuery(function ($) {
             $el.find('[data-tab-item="' + tab_name + '"]').eq(0).addClass('active');
             localStorage.setItem("sunformbuilder_setting_tab_active", tab_name);
         });
-
-        function syncLicensePasswordVisibility() {
-            let passwordField = $('#license_password');
-            let toggleField = $('#license-show-password');
-            let toggleButton = $('.wpformbuilder-license-password-toggle');
-
-            if (!passwordField.length || !toggleField.length) {
-                return;
-            }
-
-            let visible = toggleField.is(':checked');
-            passwordField.attr('type', visible ? 'text' : 'password');
-            toggleButton.attr({
-                'aria-pressed': visible ? 'true' : 'false',
-                'aria-label': visible ? 'Hide password' : 'Show password'
-            });
-            toggleButton.find('.dashicons')
-                .toggleClass('dashicons-hidden', visible)
-                .toggleClass('dashicons-visibility', !visible);
-        }
-
-        $(document).on('click', '.wpformbuilder-license-password-toggle', function (event) {
-            event.preventDefault();
-            let toggleField = $('#license-show-password');
-            toggleField.prop('checked', !toggleField.prop('checked')).trigger('change');
-        });
-
-        $(document).on('change', '#license-show-password', syncLicensePasswordVisibility);
-        syncLicensePasswordVisibility();
     } else {
         localStorage.removeItem("sunformbuilder_setting_tab_active");
     }
@@ -517,6 +488,17 @@ jQuery(function ($) {
         $.post(fsjs_data.ajaxurl, {'action': 'sunformbuilder_pro_control_ssl', ssl: ssl, nonce: fsjs_data.nonce});
     });
 
+    function readLicenseResponse(response) {
+        if (typeof response !== 'string') {
+            return response;
+        }
+        try {
+            return JSON.parse(response);
+        } catch (error) {
+            return { status: 'error', msg_err: response };
+        }
+    }
+
     $(document).on('submit', '#sun-action-activate', function (event) {
         event.preventDefault();
         if (typeof fsjs_data === 'undefined') {
@@ -526,12 +508,11 @@ jQuery(function ($) {
         let $form = $(this);
         let $button = $form.find('.button-license-activate');
         let $message = $form.find('.sun-license-eror-msg');
-        let email = $.trim($form.find('#license_email').val());
-        let password = $form.find('#license_password').val();
+        let licenseKey = $.trim($form.find('#license_key').val());
 
         $message.removeClass('is-success').text('');
-        if (!email || !password) {
-            $message.text("Email and password can't be empty.");
+        if (!licenseKey) {
+            $message.text('Enter a license key.');
             return;
         }
 
@@ -540,25 +521,54 @@ jQuery(function ($) {
             action: 'sunformbuilder_pro_plugin_config',
             nonce: fsjs_data.nonce,
             s: 'activate',
-            email: email,
-            password: password
+            license_key: licenseKey
         }).done(function (response) {
-            let data = response;
-            if (typeof response === 'string') {
-                try {
-                    data = JSON.parse(response);
-                } catch (error) {
-                    data = { status: 'error', msg_err: response };
-                }
-            }
+            let data = readLicenseResponse(response);
             if (data && data.status === 'success') {
-                $message.addClass('is-success').text('License activated.');
+                let sites = data.sites_label ? ' Site activations: ' + data.sites_label + '.' : '';
+                $message.addClass('is-success').text('License activated.' + sites);
+                window.setTimeout(function () {
+                    window.location.reload();
+                }, 600);
                 return;
             }
             $message.text((data && (data.msg_err || data.message)) || 'Activation failed.');
+            $button.prop('disabled', false);
         }).fail(function () {
             $message.text("Can't connect to server.");
-        }).always(function () {
+            $button.prop('disabled', false);
+        });
+    });
+
+    $(document).on('submit', '#sun-action-deactivate', function (event) {
+        event.preventDefault();
+        if (typeof fsjs_data === 'undefined') {
+            return;
+        }
+
+        let $form = $(this);
+        let $button = $form.find('.button-license-deactivate');
+        let $message = $form.find('.sun-license-eror-msg');
+
+        $message.removeClass('is-success').text('');
+        $button.prop('disabled', true);
+        $.post(fsjs_data.ajaxurl, {
+            action: 'sunformbuilder_pro_plugin_config',
+            nonce: fsjs_data.nonce,
+            s: 'deactivate'
+        }).done(function (response) {
+            let data = readLicenseResponse(response);
+            if (data && data.status === 'success') {
+                $message.addClass('is-success').text('License deactivated.');
+                window.setTimeout(function () {
+                    window.location.reload();
+                }, 600);
+                return;
+            }
+            $message.text((data && (data.msg_err || data.message)) || 'Deactivation failed.');
+            $button.prop('disabled', false);
+        }).fail(function () {
+            $message.text("Can't connect to server.");
             $button.prop('disabled', false);
         });
     });

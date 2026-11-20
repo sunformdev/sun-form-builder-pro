@@ -660,48 +660,87 @@ $sfbuilder_ssl_is_checked = $sfbuilder_ssl_is_checked === false || $sfbuilder_ss
                 <div class="wpformbuilder-admin-tab-wrap">
                     <div class="wpformbuilder-admin-tab-api__license">
                         <div class="wpformbuilder-tab-license-content">
-                            <form method="post" id="sun-action-activate" class="wpformbuilder-license-card">
-                                <div class="wpformbuilder-license-card__header">
-                                    <h3>Activate The Plugin License</h3>
-                                    <p>Enter the email and password from your Sun Form Builder account.</p>
-                                </div>
-                                <div class="wpformbuilder-license-form">
-                                    <div class="wpformbuilder-license-group wpformbuilder-license-group-field">
-                                        <label class="wpformbuilder-license-label" for="license_email">Email</label>
-                                        <div class="wpformbuilder-license-control sun-license-email">
-                                            <input type="email" class="wpformbuilder-license-email-control" name="license_email"
-                                                id="license_email" placeholder="you@example.com" autocomplete="off">
-                                        </div>
+                            <?php
+                            $sfbuilder_license_key = (string) get_option('sun_activation_license_key', '');
+                            $sfbuilder_license_notice = '';
+                            if ($sfbuilder_license_key !== '' && function_exists('sunformbuilder_pro_refresh_license_status')) {
+                                $sfbuilder_license_refresh = sunformbuilder_pro_refresh_license_status();
+                                if (is_wp_error($sfbuilder_license_refresh) && $sfbuilder_license_refresh->get_error_code() === 'license_inactive') {
+                                    $sfbuilder_license_notice = $sfbuilder_license_refresh->get_error_message();
+                                    $sfbuilder_license_key = '';
+                                }
+                            }
+                            $sfbuilder_license_domain = (string) get_option('sun_activation_domain', '');
+                            $sfbuilder_license_sites = (string) get_option('sun_activation_sites_label', '');
+                            if ($sfbuilder_license_sites === '' && $sfbuilder_license_key !== '') {
+                                $sfbuilder_sites_used = (int) get_option('sun_activation_sites_used', 0);
+                                $sfbuilder_sites_limit = (int) get_option('sun_activation_sites_limit', 0);
+                                $sfbuilder_license_sites = $sfbuilder_sites_used . ' / ' . ($sfbuilder_sites_limit > 0 ? (string) $sfbuilder_sites_limit : 'Unlimited');
+                            }
+                            ?>
+                            <?php if ($sfbuilder_license_key !== '') : ?>
+                                <form method="post" id="sun-action-deactivate" class="wpformbuilder-license-card">
+                                    <div class="wpformbuilder-license-card__header">
+                                        <h3>Plugin License</h3>
+                                        <p>This site is activated.</p>
                                     </div>
-                                    <div class="wpformbuilder-license-group wpformbuilder-license-group-field">
-                                        <label class="wpformbuilder-license-label" for="license_password">Password</label>
-                                        <div class="wpformbuilder-license-control sun-license-password">
-                                            <input type="password" class="sun-license-password-control" name="license_password"
-                                                id="license_password" placeholder="Enter your password" autocomplete="off">
-                                            <button type="button" class="wpformbuilder-license-password-toggle" aria-pressed="false" aria-label="Show password">
-                                                <span class="dashicons dashicons-visibility" aria-hidden="true"></span>
+                                    <div class="wpformbuilder-license-form">
+                                        <div class="wpformbuilder-license-status">
+                                            <div class="wpformbuilder-license-status__row">
+                                                <span>License key</span>
+                                                <strong class="wpformbuilder-license-key-value"><?php echo esc_html($sfbuilder_license_key); ?></strong>
+                                            </div>
+                                            <div class="wpformbuilder-license-status__row">
+                                                <span>Domain</span>
+                                                <strong><?php echo esc_html($sfbuilder_license_domain); ?></strong>
+                                            </div>
+                                            <div class="wpformbuilder-license-status__row">
+                                                <span>Site activations</span>
+                                                <strong><?php echo esc_html($sfbuilder_license_sites); ?></strong>
+                                            </div>
+                                        </div>
+                                        <div class="sun-license-eror-msg" role="alert"></div>
+                                        <div class="sun-license-active-buttons">
+                                            <button type="submit" class="button button-secondary button-license-deactivate">
+                                                <i class="fa fa-circle-o-notch fa-spin" aria-hidden="true"></i>
+                                                <span>Deactivate License</span>
                                             </button>
-                                            <input type="checkbox" class="wpformbuilder-license-password-control" id="license-show-password">
                                         </div>
                                     </div>
-                                    <div class="wpformbuilder-license-options">
-                                        <label class="wpformbuilder-license-toggle sun-license-label" for="disable-ssl"
-                                            title="Use only if your server does not have valid SSL (not recommended)">
-                                            <input type="checkbox" class="sun-license-password-control license-disable-ssl"
-                                                id="disable-ssl"
-                                                title="Use only if your server does not have valid SSL (not recommended)" <?php echo esc_attr($sfbuilder_ssl_is_checked); ?>>
-                                            <span>Disable SSL verify</span>
-                                        </label>
+                                </form>
+                            <?php else : ?>
+                                <form method="post" id="sun-action-activate" class="wpformbuilder-license-card">
+                                    <div class="wpformbuilder-license-card__header">
+                                        <h3>Activate The Plugin License</h3>
+                                        <p>Enter the license key from your Sun Form Builder account.</p>
                                     </div>
-                                    <div class="sun-license-eror-msg" role="alert"></div>
-                                    <div class="sun-license-active-buttons">
-                                        <button type="submit" class="button button-primary button-license-activate">
-                                            <i class="fa fa-circle-o-notch fa-spin" aria-hidden="true"></i>
-                                            <span>Activate License</span>
-                                        </button>
+                                    <div class="wpformbuilder-license-form">
+                                        <div class="wpformbuilder-license-group wpformbuilder-license-group-field">
+                                            <label class="wpformbuilder-license-label" for="license_key">License key</label>
+                                            <div class="wpformbuilder-license-control">
+                                                <input type="text" name="license_key" id="license_key"
+                                                    placeholder="XXXX-XXXX-XXXX-XXXX" autocomplete="off" spellcheck="false">
+                                            </div>
+                                        </div>
+                                        <div class="wpformbuilder-license-options">
+                                            <label class="wpformbuilder-license-toggle sun-license-label" for="disable-ssl"
+                                                title="Use only if your server does not have valid SSL (not recommended)">
+                                                <input type="checkbox" class="license-disable-ssl"
+                                                    id="disable-ssl"
+                                                    title="Use only if your server does not have valid SSL (not recommended)" <?php echo esc_attr($sfbuilder_ssl_is_checked); ?>>
+                                                <span>Disable SSL verify</span>
+                                            </label>
+                                        </div>
+                                        <div class="sun-license-eror-msg" role="alert"><?php echo esc_html($sfbuilder_license_notice); ?></div>
+                                        <div class="sun-license-active-buttons">
+                                            <button type="submit" class="button button-primary button-license-activate">
+                                                <i class="fa fa-circle-o-notch fa-spin" aria-hidden="true"></i>
+                                                <span>Activate License</span>
+                                            </button>
+                                        </div>
                                     </div>
-                                </div>
-                            </form>
+                                </form>
+                            <?php endif; ?>
                         </div>
                     </div>
                 </div>

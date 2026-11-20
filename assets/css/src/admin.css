@@ -475,8 +475,48 @@ a.wpformbuilder-dowload-document:hover{
 .button-license-activate .fa{
     display: none;
 }
-.button-license-activate:disabled .fa{
+.button-license-activate:disabled .fa,
+.button-license-deactivate:disabled .fa{
     display: inline-block;
+}
+.button-license-deactivate{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    min-height: 40px;
+    font-size: 14px;
+}
+.button-license-deactivate .fa{
+    display: none;
+}
+.wpformbuilder-license-status{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 16px;
+}
+.wpformbuilder-license-status__row{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 10px 12px;
+    border-radius: 4px;
+    background: #f6f7f7;
+    color: #646970;
+    font-size: 13px;
+}
+.wpformbuilder-license-status__row strong{
+    color: #1d2327;
+    font-weight: 600;
+    text-align: right;
+    word-break: break-all;
+}
+.wpformbuilder-license-key-value{
+    font-family: Consolas, Monaco, monospace;
+    letter-spacing: 0.02em;
 }
 .wpformbuilder-admin-tab-api__license{
     width: 100%;
